@@ -19,7 +19,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {
 
-    public EditText emailId, password;
+    EditText emailId, password;
     Button btnSignUp;
     TextView tvSignIn;
     FirebaseAuth mFirebaseAuth;
@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
         emailId = findViewById(R.id.editText);
         password = findViewById(R.id.editText2);
         btnSignUp = findViewById(R.id.button);
+        tvSignIn = findViewById(R.id.textView);
         btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
@@ -68,6 +69,14 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this,"Error Occurred!",Toast.LENGTH_SHORT).show();
 
                 }
+            }
+        });
+
+        tvSignIn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MainActivity.this,LoginActivity.class);
+                startActivity(i);
             }
         });
     }
